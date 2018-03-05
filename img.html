@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#myCanvas{
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+    <canvas id="myCanvas" width="398px" height="398px"></canvas>
+    <script type="text/javascript">
+    	  var cav = document.getElementById("myCanvas");
+    	  if(cav.getContext){
+    	  		var cxt = cav.getContext('2d');
+    	  		var i = 0;
+    	  		var j = 0;
+                function drawImg(i,j){
+                		cxt.clearRect(0,0,400,400);
+                		cxt.fillStyle = 'red';
+    	  				cxt.fillRect(i,j,40,40);
+                }
+                drawImg(0,0);
+                var x = 10;
+                var y = 5;
+                setInterval(function(){
+	                       if(i<0||i>=360){
+	                       	  	 x= -x;
+	                       }
+	                       if(j<0||j>=360){
+	                       		y = -y;
+	                       }
+	                       i = i+x;
+	                       j = j+y;
+	                       drawImg(i,j);
+                },100);
+    	  		
+    	  }
+    </script>
+</body>
+</html>
